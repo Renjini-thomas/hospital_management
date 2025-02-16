@@ -1,0 +1,141 @@
+{% extends 'main.html' %}
+
+{% block title %}Appointment Status{% endblock %}
+
+{% block content %}
+    <style>
+        h2 {
+            font-size: 28px;
+            font-weight: bold;
+            text-align: center;
+            color: white;
+            padding: 15px;
+            background: linear-gradient(to right, #008080, #20c997); /* Teal Gradient */
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 255, 255, 0.4);
+            text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.8);
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .card-header {
+            font-size: 20px;
+            font-weight: bold;
+            background: linear-gradient(135deg, #008080, #20c997);
+            color: white;
+            padding: 15px;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .status-label {
+            font-size: 16px;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .status-scheduled {
+            background-color: #ffcc00;
+            color: black;
+        }
+
+        .status-completed {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .status-cancelled {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .custom-teal-btn {
+            display: inline-block;
+            padding: 12px;
+            background: linear-gradient(135deg, #008080, #20c997); /* Teal Gradient */
+            color: white;
+            border: none;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            text-align: center;
+            margin-top: 10px;
+            width: auto;
+        }
+
+        .custom-teal-btn:hover {
+            background: linear-gradient(135deg, #20c997, #008080);
+            transform: scale(1.05);
+            box-shadow: 0px 4px 10px rgba(0, 255, 255, 0.3);
+        }
+    </style>
+
+    <div class="container mt-5">
+        <h2>Appointment Status</h2>
+
+        {% if appointment %}
+            <div class="card">
+                <div class="card-header">
+                    Appointment Details
+                </div>
+                <div class="card-body">
+                    <p><strong>Patient:</strong> {{ appointment.patient.first_name }} {{ appointment.patient.last_name }}</p>
+                    <p><strong>Doctor:</strong> Dr. {{ appointment.doctor.first_name }} {{ appointment.doctor.last_name }}</p>
+                    <p><strong>Appointment Date:</strong> {{ appointment.appointment_date }}</p>
+                    <p><strong>Appointment Time:</strong> {{ appointment.appointment_time }}</p>
+
+                    <p><strong>Status:</strong>
+                        {% if appointment.status == 'Scheduled' %}
+                            <span class="status-label status-scheduled">{{ appointment.status }}</span>
+                        {% elif appointment.status == 'Completed' %}
+                            <span class="status-label status-completed">{{ appointment.status }}</span>
+                        {% elif appointment.status == 'Cancelled' %}
+                            <span class="status-label status-cancelled">{{ appointment.status }}</span>
+                        {% endif %}
+                    </p>
+
+                    <div class="mt-4">
+                        {% if appointment.status == 'Completed' %}
+                            <p class="text-info">Your appointment has been completed. Thank you for visiting the hospital.</p>
+                        {% elif appointment.request_status == 'Pending' %}
+                            <p class="text-muted">Your appointment request is still pending. Please wait for approval.</p>
+                        {% elif appointment.request_status == 'Approved' %}
+                            <p class="text-success">Your appointment request has been approved. You can now visit the hospital on the scheduled date and time.</p>
+                        {% elif appointment.request_status == 'Rejected' %}
+                            <p class="text-danger">Unfortunately, your appointment request was rejected. Please try again later or contact the hospital for further assistance.</p>
+                        {% endif %}
+                    </div>
+
+                    {% if appointment.request_status == 'Pending' %}
+                        <div class="mt-3">
+                            <a href="{% url 'delete_app' appointment.appointment_id %}" class="btn btn-danger"
+                               onclick="return confirm('Are you sure you want to delete the appointment?')">
+                                Delete Appointment
+                            </a>
+                        </div>
+                    {% endif %}
+
+                    <div class="mt-3">
+                        <a href="{% url 'patient_dash' %}" class="custom-teal-btn">Back to Dashboard</a>
+                        <a href="{% url 'appointment_request' %}" class="custom-teal-btn">Request Another Appointment</a>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <p>You do not have any appointment requests at the moment.</p>
+            <a href="{% url 'appointment_request' %}" class="custom-teal-btn">Request Appointment</a>
+        {% endif %}
+    </div>
+
+{% endblock %}

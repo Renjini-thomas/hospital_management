@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center">Choose Your Registration Type</h2>
+    <div class="row justify-content-center mt-4">
+
+        <!-- Patient Card -->
+        <div class="col-md-4 mb-4">
+            <div class="card text-center shadow" style="width: 18rem;">
+                <img src="https://img.icons8.com/ios/452/hospital-room.png" class="card-img-top" alt="Patient Logo" style="height: 150px; object-fit: contain;">
+                <div class="card-body">
+                    <h5 class="card-title">Patient</h5>
+                    <p class="card-text">Register as a Patient to book appointments and view medical records.</p>
+                    <a href="{% url 'register' role='Patient' %}" class="btn btn-primary">Register as Patient</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

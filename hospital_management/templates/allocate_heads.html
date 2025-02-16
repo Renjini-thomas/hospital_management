@@ -1,0 +1,72 @@
+{% extends 'main.html' %}
+{% block title %}Allocate Department Heads{% endblock %}
+
+{% block content %}
+<style>
+    body {
+    background-color: #f8f9fa;
+    background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
+    font-family: 'Arial', sans-serif;
+}
+    h2 {
+        font-size: 32px;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #ffffff;
+        text-align: center;
+        padding: 15px;
+        background: linear-gradient(to right, #008080, #20c997); /* Teal Gradient */
+        border-radius: 8px;
+        box-shadow: 0px 4px 15px rgba(0, 255, 255, 0.5); /* Glowing Effect */
+        text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
+    }
+    .custom-teal-btn {
+        background: linear-gradient(135deg, #008080, #20c997); /* Teal Gradient */
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+
+    .custom-teal-btn:hover {
+        background: linear-gradient(135deg, #20c997, #008080); /* Inverted Teal */
+        transform: scale(1.05);
+        box-shadow: 0px 4px 10px rgba(0, 255, 255, 0.3);
+    }
+    </style>
+<div class="container mt-5">
+    <h2>Allocate Heads of Departments</h2>
+    <form method="post">
+        {% csrf_token %}
+        <table class="table table-bordered">
+            <head>
+                <tr>
+                    <th>Department</th>
+                    <th>Head of Department</th>
+                </tr>
+            </head>
+            <tbody>
+            {% for i in departments %}
+            <tr>
+                <td>{{ i.name }}</td>
+                <td>
+                    <select name="head_{{ i.department_id }}" class="form-control">
+                        <option value="">Select Doctor</option>
+                        {% for j in doctors %}
+                        <option value="{{ j.doctor_id }}" {% if i.head_of_department == j %} selected {% endif %}>
+                            {{ j.first_name }} {{ j.last_name }} - {{ j.specialty }}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <button type="submit" class="btn custom-teal-btn mb-3">Update Heads</button>
+        <a href="{% url 'department_list' %}" class="btn custom-teal-btn mb-3">BACK</a>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends 'main.html' %}
+{% block title %}Request Appointment{% endblock %}
+
+{% block content %}
+    <style>
+        h2 {
+            font-size: 28px;
+            font-weight: bold;
+            text-align: center;
+            color: white;
+            padding: 15px;
+            background: linear-gradient(to right, #008080, #20c997); /* Teal Gradient */
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 255, 255, 0.4);
+            text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.8);
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-control {
+            border: 1px solid #008080;
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        .custom-teal-btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #008080, #20c997); /* Teal Gradient */
+            color: white;
+            border: none;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .custom-teal-btn:hover {
+            background: linear-gradient(135deg, #20c997, #008080); /* Inverted Teal */
+            transform: scale(1.05);
+            box-shadow: 0px 4px 10px rgba(0, 255, 255, 0.3);
+        }
+    </style>
+
+    <div class="container mt-4">
+        <h2>Request an Appointment</h2>
+
+        <div class="form-container">
+            <form method="POST">
+                {% csrf_token %}
+                <div class="mb-3">
+                    {{ form.as_p }}  <!-- Render the form fields as paragraphs -->
+                </div>
+                <button type="submit" class="custom-teal-btn">Submit Appointment Request</button>
+                <a href="{% url 'patient_dash' %}" class="btn custom-teal-btn mb-3">BACK</a>
+            </form>
+        </div>
+    </div>
+{% endblock %}

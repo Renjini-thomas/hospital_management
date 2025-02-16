@@ -1,0 +1,54 @@
+{% extends 'main.html' %}
+
+{% block title %}Add Medical Record{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="text-center">Add Medical Record</h2>
+
+    <div class="card p-4 shadow-lg">
+        <p><strong>Patient:</strong> {{ appointment.patient.first_name }} {{ appointment.patient.last_name }}</p>
+        <p><strong>Date:</strong> {{ appointment.appointment_date }}</p>
+
+        <form method="POST" class="mt-3">
+            {% csrf_token %}
+
+            <div class="mb-3">
+                <label class="form-label">Diagnosis</label>
+                {{ form.diagnosis }}
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Treatment Plan</label>
+                {{ form.treatment_plan }}
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Medications</label>
+                {{ form.medications }}
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Prescription</label>
+                {{ form.prescription }}
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">Save Medical Record</button>
+        </form>
+    </div>
+</div>
+
+<style>
+    .card {
+        max-width: 600px;
+        margin: auto;
+        border-radius: 10px;
+    }
+    input, textarea {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ced4da;
+        border-radius: 5px;
+    }
+</style>
+{% endblock %}

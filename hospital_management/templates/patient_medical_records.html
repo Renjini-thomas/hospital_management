@@ -1,0 +1,35 @@
+{% extends 'main.html' %}
+{% block title %}Patient - Medical Records{% endblock %}
+
+{% block content %}
+<h2>Your Medical Records</h2>
+
+{% if medical_records %}
+<table>
+    <thead>
+        <tr>
+            <th>Doctor</th>
+            <th>Diagnosis</th>
+            <th>Treatment Plan</th>
+            <th>Medications</th>
+            <th>Prescription</th>
+            <th>Visit Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for record in medical_records %}
+        <tr>
+            <td>Dr. {{ record.doctor.first_name }} {{ record.doctor.last_name }}</td>
+            <td>{{ record.diagnosis }}</td>
+            <td>{{ record.treatment_plan }}</td>
+            <td>{{ record.medications }}</td>
+            <td>{{ record.prescription }}</td>
+            <td>{{ record.visit_date }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>No medical records found.</p>
+{% endif %}
+{% endblock %}

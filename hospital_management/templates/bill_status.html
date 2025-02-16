@@ -1,0 +1,19 @@
+{% extends 'main.html' %}
+{% block title %}BILLS{% endblock %}
+{% block content %}
+<h3>Your Bills</h3>
+<table>
+    <tr>
+        <th>Appointment Date</th>
+        <th>Total Amount</th>
+        <th>Status</th>
+    </tr>
+    {% for bill in bills %}
+    <tr>
+        <td>{{ bill.appointment.appointment_date }}</td>
+        <td>₹{{ bill.total_amount }}</td>
+        <td>{{ bill.payment_status }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends 'main.html' %}
+{% block title %}Patient Dashboard{% endblock %}
+{% block content %}
+{% load static %}
+<style>
+    h2 {
+        font-size: 32px;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #ffffff;
+        text-align: center;
+        padding: 15px;
+        background: linear-gradient(to right, #008080, #20c997); /* Teal Gradient */
+        border-radius: 8px;
+        box-shadow: 0px 4px 15px rgba(0, 255, 255, 0.5); /* Glowing Effect */
+        text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
+    }
+
+    .custom-teal-btn {
+        display: inline-block;
+        font-size: 16px;
+        font-weight: 500;
+        padding: 12px 25px;
+        text-align: center;
+        border-radius: 8px;
+        background: linear-gradient(135deg, #008080, #20c997); /* Teal Gradient */
+        color: white;
+        border: none;
+        transition: all 0.3s ease;
+        width: 100%;
+        max-width: 300px;
+        margin: 10px 0;
+        text-decoration: none; /* Removes underline */
+    }
+
+    .custom-teal-btn:hover {
+        background: linear-gradient(135deg, #20c997, #008080); /* Inverted Teal */
+        transform: scale(1.05);
+        box-shadow: 0px 4px 10px rgba(0, 255, 255, 0.3);
+    }
+
+    body {
+        background-color: #f8f9fa;
+        background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
+        font-family: 'Arial', sans-serif;
+    }
+</style>
+
+<div class="container mt-4" style="max-width: 1200px; margin: 0 auto; padding: 100px;">
+    <h2>Dashboard</h2>
+
+    <!-- Buttons with Teal Theme -->
+    <a href="{% url 'appointment_request' %}" class="custom-teal-btn">MAKE APPOINTMENTS</a>
+    <a href="{% url 'appointment_status' %}" class="custom-teal-btn">APPOINTMENT STATUS</a>
+    <a href="{% url 'patient_all_appointments' %}" class="custom-teal-btn">APPOINTMENT HISTORY</a>
+    <a href="{% url 'doctor_list_for_pat' %}" class="custom-teal-btn">DOCTORS AND DEPARTMENTS DETAILS</a>
+</div>
+
+{% endblock %}

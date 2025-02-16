@@ -1,0 +1,117 @@
+{% extends 'main.html' %}
+
+{% block title %}Medical Record Details{% endblock %}
+
+{% block content %}
+    <style>
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        h2 {
+            font-size: 26px;
+            font-weight: bold;
+            text-align: center;
+            color: white;
+            padding: 15px;
+            background: linear-gradient(to right, #008080, #20c997);
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 255, 255, 0.4);
+            text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.8);
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .card h4 {
+            color: #008080;
+            font-weight: bold;
+        }
+
+        .card p {
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 8px;
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, #008080, #20c997);
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            font-weight: bold;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .btn-success:hover {
+            background: linear-gradient(135deg, #20c997, #008080);
+            transform: scale(1.05);
+            box-shadow: 0px 4px 10px rgba(0, 255, 255, 0.3);
+        }
+
+        .alert-warning {
+            background: #fff3cd;
+            color: #856404;
+            padding: 15px;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-weight: bold;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #0056b3, #007bff);
+            transform: scale(1.05);
+            box-shadow: 0px 4px 10px rgba(0, 123, 255, 0.3);
+        }
+    </style>
+
+    <div class="container mt-4">
+        <h2>Medical Record for Appointment on {{ appointment.appointment_date }}</h2>
+
+        {% if medical_record %}
+            <div class="card shadow-sm p-3">
+                <h4>Doctor: Dr. {{ appointment.doctor.first_name }} {{ appointment.doctor.last_name }}</h4>
+                <p><strong>Visit Date:</strong> {{ medical_record.visit_date }}</p>
+                <p><strong>Diagnosis:</strong> {{ medical_record.diagnosis }}</p>
+                <p><strong>Treatment Plan:</strong> {{ medical_record.treatment_plan }}</p>
+                <p><strong>Medications:</strong> {{ medical_record.medications }}</p>
+                <p><strong>Status:</strong> {{ medical_record.status }}</p>
+
+                {% if medical_record.medical_report %}
+                    <p>
+                        <strong>Medical Report:</strong>
+                        <a href="{{ medical_record.medical_report.url }}" class="btn btn-success btn-sm" target="_blank">
+                            View / Download Report
+                        </a>
+                    </p>
+                {% else %}
+                    <p class="text-muted">No medical report available.</p>
+                {% endif %}
+            </div>
+        {% else %}
+            <div class="alert alert-warning">
+                No medical record found for this appointment.
+            </div>
+        {% endif %}
+
+        <a href="{% url 'patient_all_appointments' %}" class="btn btn-primary mb-3">Back to Appointments</a>
+    </div>
+{% endblock %}

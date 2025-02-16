@@ -1,0 +1,50 @@
+{% extends 'main.html' %}
+
+{% block content %}
+  <h2>Doctor's Appointments Details</h2>
+
+  <h3>Today's Appointments</h3>
+  {% if today_appointments %}
+    <ul>
+      {% for appointment in today_appointments %}
+        <li>
+          <strong>Patient:</strong> {{ appointment.patient.first_name }} {{ appointment.patient.last_name }}<br>
+          <strong>Time:</strong> {{ appointment.appointment_time }}<br>
+          <strong>Status:</strong> {{ appointment.status }}
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No appointments scheduled for today.</p>
+  {% endif %}
+
+  <h3>Upcoming Appointments</h3>
+  {% if upcoming_appointments %}
+    <ul>
+      {% for appointment in upcoming_appointments %}
+        <li>
+          <strong>Patient:</strong> {{ appointment.patient.first_name }} {{ appointment.patient.last_name }}<br>
+          <strong>Scheduled for:</strong> {{ appointment.appointment_date }} at {{ appointment.appointment_time }}<br>
+          <strong>Status:</strong> {{ appointment.status }}
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No upcoming appointments.</p>
+  {% endif %}
+
+  <h3>Completed Appointments</h3>
+  {% if completed_appointments %}
+    <ul>
+      {% for appointment in completed_appointments %}
+        <li>
+          <strong>Patient:</strong> {{ appointment.patient.first_name }} {{ appointment.patient.last_name }}<br>
+          <strong>Completed on:</strong> {{ appointment.appointment_date }} at {{ appointment.appointment_time }}<br>
+          <strong>Status:</strong> {{ appointment.status }}
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No completed appointments.</p>
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,126 @@
+{% extends 'main.html' %}
+
+{% block title %}APPOINTMENT MANAGEMENT{% endblock %}
+
+{% block content %}
+<style>
+    h2 {
+        font-size: 32px;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #ffffff;
+        text-align: center;
+        padding: 15px;
+        background: linear-gradient(to right, #008080, #20c997); /* Teal Gradient */
+        border-radius: 8px;
+        box-shadow: 0px 4px 15px rgba(0, 255, 255, 0.5); /* Glowing Effect */
+        text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
+    }
+.table {
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    thead {
+        background-color: #007bff;
+        color: white;
+    }
+
+    th, td {
+        padding: 12px;
+        text-align: center;
+    }
+
+    tbody tr:hover {
+        background-color: #f8f9fa;
+    }
+    body {
+    background-color: #f8f9fa;
+    background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
+    font-family: 'Arial', sans-serif;
+}
+    .custom-teal-btn {
+        background: linear-gradient(135deg, #008080, #20c997); /* Teal Gradient */
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+
+    .custom-teal-btn:hover {
+        background: linear-gradient(135deg, #20c997, #008080); /* Inverted Teal */
+        transform: scale(1.05);
+        box-shadow: 0px 4px 10px rgba(0, 255, 255, 0.3);
+    }
+</style>
+<div class="container mt-5">
+    <h2>APPOINTMENT MANAGEMENT</h2>
+    <a href="{% url 'admin_dash' %}" class="btn custom-teal-btn mb-3">Back to Dashboard</a>
+    <table class="table table-bordered table-striped mt-4">
+        <thead class="thead-dark">
+            <tr>
+                <th>Patient</th>
+                <th>Doctor</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Status</th>
+                <th>Action</th>
+                <th>BILL</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in appointments %}
+            <tr>
+                <td>{{ i.patient.first_name }} {{ i.patient.last_name }}</td>
+                <td>{{ i.doctor.first_name }} {{ i.doctor.last_name }}</td>
+                <td>{{ i.appointment_date }}</td>
+                <td>{{ i.appointment_time }}</td>
+                <td>
+                    {% if i.status == 'Pending' %}
+                        <span style="color: orange;">{{ i.status }}</span>
+                    {% elif i.status == 'Scheduled' %}
+                        <span style="color: green;">{{ i.status }}</span>
+                    {% elif i.status == 'Completed' %}
+                        <span style="color: blue;">{{ i.status }}</span>
+                    {% elif i.status == 'Cancelled' %}
+                        <span style="color: red;">{{ i.status }}</span>
+                    {% else %}
+                        <span>{{ i.status }}</span>
+                    {% endif %}
+
+
+                </td>
+                <td>
+                    {% if i.status == 'Pending' %}
+                        <a href="{% url 'approve_appointments' i.appointment_id %}" class="btn btn-success btn-sm">Approve</a> |
+                        <a href="{% url 'reject_appointments' i.appointment_id %}" class="btn btn-danger btn-sm">Reject</a>
+                    {% else %}
+                        N/A
+                    {% endif %}
+                </td>
+ <td>
+    {% if i.status == 'Completed' %}
+        {% if i.billing.payment_status == 'Pending' %}
+            <form action="{% url 'mark_as_paid' i.billing.billing_id %}" method="POST">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-warning btn-sm">Mark as Paid</button>
+            </form>
+        {% elif i.billing.payment_status == 'Paid' %}
+            <span style="color: green; font-weight: bold;">Paid</span>
+        {% else %}
+            <span style="color: red;">N/A</span>
+        {% endif %}
+    {% else %}
+        <span style="color: red;">N/A</span>
+    {% endif %}
+</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

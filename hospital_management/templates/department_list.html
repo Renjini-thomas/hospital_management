@@ -1,0 +1,89 @@
+{% extends "main.html" %}
+{% block title %}Department Management{% endblock %}
+
+{% block content %}
+<style>
+    h2 {
+        font-size: 32px;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #ffffff;
+        text-align: center;
+        padding: 15px;
+        background: linear-gradient(to right, #008080, #20c997); /* Teal Gradient */
+        border-radius: 8px;
+        box-shadow: 0px 4px 15px rgba(0, 255, 255, 0.5); /* Glowing Effect */
+        text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
+    }
+.table {
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    thead {
+        background-color: #007bff;
+        color: white;
+    }
+
+    th, td {
+        padding: 12px;
+        text-align: center;
+    }
+
+    tbody tr:hover {
+        background-color: #f8f9fa;
+    }
+    body {
+    background-color: #f8f9fa;
+    background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
+    font-family: 'Arial', sans-serif;
+}
+    .custom-teal-btn {
+        background: linear-gradient(135deg, #008080, #20c997); /* Teal Gradient */
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+
+    .custom-teal-btn:hover {
+        background: linear-gradient(135deg, #20c997, #008080); /* Inverted Teal */
+        transform: scale(1.05);
+        box-shadow: 0px 4px 10px rgba(0, 255, 255, 0.3);
+    }
+</style>
+<div class="container mt-5">
+    <h2>DEPARTMENT MANAGEMENT</h2>
+    <a href ="{% url 'add_department' %}" class="btn custom-teal-btn mb-3">ADD DEPARTMENTS</a>
+    <a href ="{% url 'allocate_heads' %}" class="btn custom-teal-btn mb-3">ALLOCATE DEPARTMENTS HEADS</a>
+    <a href ="{% url 'admin_dash' %}" class="btn custom-teal-btn mb-3">Back to dashboard</a>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Head Of Department</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for i in dep %}
+        <tr>
+            <td>{{ i.name }}</td>
+            <td>{{ i.description }}</td>
+            <td>{{ i.head_of_department.first_name }} {{ i.head_of_department.last_name }}</td>
+
+            <td>
+                <a href="{% url 'edit_department' i.pk %}" class="btn custom-teal-btn mb-3">EDIT</a>
+                <a href="{% url 'delete_department' i.pk %}" class="btn custom-teal-btn mb-3">DELETE</a>
+
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

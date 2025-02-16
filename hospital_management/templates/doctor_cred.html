@@ -1,0 +1,16 @@
+{% extends "main.html" %}
+
+{% block content %}
+<h2>Doctor Account Created Successfully</h2>
+
+{% if cred %}
+    <p><strong>Doctor Name:</strong> {{ cred.name }}</p>
+    <p><strong>Username (Email):</strong> {{ cred.username }}</p>
+    <p><strong>Temporary Password:</strong> {{ cred.password }}</p>
+    <p>Please note this information before leaving this page.</p>
+{% else %}
+    <p>No credentials available.</p>
+{% endif %}
+
+<a href="{% url 'doctor_list' %}" class="btn btn-primary">Go to Doctor List</a>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'main.html' %}
+
+{% block title %}My Bills{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>My Bills</h2>
+    <a href="{% url 'patient_dash' %}" class="btn custom-teal-btn mb-3">BACK</a>
+
+    {% if bills %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Appointment Date</th>
+                    <th>Doctor</th>
+                    <th>Total Amount</th>
+                    <th>Payment Status</th>
+                    <th>View Bill</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for bill in bills %}
+                    <tr>
+                        <td>{{ bill.appointment.appointment_date }}</td>
+                        <td>Dr. {{ bill.appointment.doctor.first_name }} {{ bill.appointment.doctor.last_name }}</td>
+                        <td>₹{{ bill.total_amount }}</td>
+                        <td>
+                            {% if bill.payment_status == "Pending" %}
+                                <span class="status-label status-pending">Pending</span>
+                            {% else %}
+                                <span class="status-label status-paid">Paid</span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            <a href="{% url 'view_bill_pat' bill.billing_id %}" class="btn custom-teal-btn">View Bill</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No bills found.</p>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,1030 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>{% block title %}CARE FIRST HOSPITAL{% endblock %}</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="static/assets/img/logo6.png" rel="icon">
+  <link href="static/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="static/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="static/assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="static/assets/css/main.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Medicio
+  * Template URL: https://bootstrapmade.com/medicio-free-bootstrap-theme/
+  * Updated: Aug 07 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body class="index-page">
+
+  <header id="header" class="header sticky-top">
+
+    <div class="topbar d-flex align-items-center">
+      <div class="container d-flex justify-content-center justify-content-md-between">
+        <div class="d-none d-md-flex align-items-center">
+          <i class="bi bi-clock me-1"></i> Monday - Sunday, 24/7
+        </div>
+        <div class="d-flex align-items-center">
+          <i class="bi bi-phone me-1"></i> Call us now +1 5589 55488 55
+        </div>
+      </div>
+    </div><!-- End Top Bar -->
+
+    <div class="branding d-flex align-items-center">
+
+      <div class="container position-relative d-flex align-items-center justify-content-end">
+        <a href="index.html" class="logo d-flex align-items-center me-auto">
+          <img src="static/assets/img/logo5.png" alt="">
+          <!-- Uncomment the line below if you also wish to use a text logo -->
+          <!-- <h1 class="sitename">Medicio</h1>  -->
+        </a>
+
+        <nav id="navmenu" class="navmenu">
+          <ul>
+            <li><a href="#hero" class="active">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#tabs">Departments</a></li>
+<!--            <li><a href="#doctors">Doctors</a></li>-->
+<!--            <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>-->
+<!--              <ul>-->
+<!--                <li><a href="#">Dropdown 1</a></li>-->
+<!--                <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>-->
+<!--                  <ul>-->
+<!--                    <li><a href="#">Deep Dropdown 1</a></li>-->
+<!--                    <li><a href="#">Deep Dropdown 2</a></li>-->
+<!--                    <li><a href="#">Deep Dropdown 3</a></li>-->
+<!--                    <li><a href="#">Deep Dropdown 4</a></li>-->
+<!--                    <li><a href="#">Deep Dropdown 5</a></li>-->
+<!--                  </ul>-->
+<!--                </li>-->
+<!--                <li><a href="#">Dropdown 2</a></li>-->
+<!--                <li><a href="#">Dropdown 3</a></li>-->
+<!--                <li><a href="#">Dropdown 4</a></li>-->
+<!--              </ul>-->
+<!--            </li>-->
+            <li><a href="#gallery">GALLERY</a></li>
+          </ul>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+
+        <a class="cta-btn" href="{% url 'login' %}">Login</a>
+        <a class="cta-btn" href="{% url 'select_role' %}">Register</a>
+
+
+      </div>
+
+    </div>
+
+  </header>
+
+  <main class="main">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section">
+
+      <div id="hero-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+
+        <div class="carousel-item active">
+          <img src="static/assets/img/hero-carousel/hero-carousel-1.jpg" alt="">
+          <div class="container">
+            <h2>Welcome to Care First Multi-Speciality Hospital</h2>
+            <p> Care First is a premier multi-speciality hospital dedicated to providing
+              top-notch healthcare services under one roof.
+              Our efficient hospital management system ensures that patients and staff experience seamless coordination,
+              streamlined processes, and exceptional care. Whether it's booking appointments, accessing records,
+              or managing operations, we make it effortless because your care comes first at Care First.</p>
+            <a href="#about" class="btn-get-started">Read More</a>
+          </div>
+        </div><!-- End Carousel Item -->
+
+        <div class="carousel-item">
+          <img src="static/assets/img/hero-carousel/hero-carousel-2.jpg" alt="">
+          <div class="container">
+            <h2>Specialized Care, Trusted Excellence</h2>
+            <p> At Care First, we bring together a team of highly skilled medical professionals across multiple
+              specialties to provide comprehensive healthcare solutions.
+              From advanced diagnostics and surgical expertise to personalized treatments and wellness programs,
+              we ensure the highest standard of care for every patient. Our cutting-edge technology,
+              patient-centric approach, and compassionate care make us a trusted partner in your health journey.</p>
+            <a href="#about" class="btn-get-started">Read More</a>
+          </div>
+        </div><!-- End Carousel Item -->
+
+        <div class="carousel-item">
+          <img src="static/assets/img/hero-carousel/hero-carousel-3.jpg" alt="">
+          <div class="container">
+            <h2>Around-the-Clock Care for Your Peace of Mind</h2>
+            <p>At Care First, we understand that healthcare needs don’t adhere to a 9-to-5 schedule.
+              That's why we offer 24/7 emergency services, ensuring that expert care is always available when you need it most.
+              Whether it's an unexpected medical emergency or a late-night consultation,
+              our dedicated team is here to provide prompt and effective treatment at any hour,
+              giving you the confidence that help is always just a call away.
+              Your health is our priority, anytime, day or night.</p>
+            <a href="#about" class="btn-get-started">Read More</a>
+          </div>
+        </div><!-- End Carousel Item -->
+
+        <a class="carousel-control-prev" href="#hero-carousel" role="button" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+        </a>
+
+        <a class="carousel-control-next" href="#hero-carousel" role="button" data-bs-slide="next">
+          <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+        </a>
+
+        <ol class="carousel-indicators"></ol>
+
+      </div>
+
+    </section> <!-- /Hero Section -->
+
+    <!-- Featured Services Section -->
+    <section id="featured-services" class="featured-services section">
+
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="fas fa-ambulance"></i></div>
+              <h4><a href="" class="stretched-link">Emergency Department (ED)</a></h4>
+              <p><strong>Overview:</strong> The emergency department handles patients with acute illnesses or
+                injuries that require immediate medical attention.
+                It operates 24/7 to ensure critical care for emergencies.</br>
+                <strong>Services:</strong> Trauma care, resuscitation, treatment of severe medical conditions,
+                emergency surgeries, and initial assessments.</br>
+                <strong>Specialties:</strong> Trauma care, cardiology (heart emergencies), neurology (stroke care), and toxicology.</p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="fas fa-heartbeat"></i></div>
+              <h4><a href="" class="stretched-link"> Cardiology Department</a></h4>
+              <p><strong>Overview:</strong> This department deals with the diagnosis and treatment of heart-related diseases.</br>
+                <strong>Services:</strong> Electrocardiograms (ECG), stress tests, echocardiograms, cardiac catheterization, angioplasty, heart failure management.</br>
+                  <strong>Specialties:</strong> Interventional cardiology, pediatric cardiology, electrophysiology, and cardiac rehabilitation.</p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="fas fa-bone"></i></div>
+              <h4><a href="" class="stretched-link">Orthopedics Department</a></h4>
+              <p><strong>Overview:</strong> Orthopedics focuses on diagnosing and treating musculoskeletal system disorders, including bones, joints, muscles, and ligaments.</br>
+                <strong>Services:</strong> Fracture care, joint replacement surgeries, spinal surgeries, arthroscopy, physical therapy, and rehabilitation.</br>
+<strong>Specialties:</strong> Sports medicine, pediatric orthopedics, hand surgery, and joint replacement.</p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="400">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="fas fa-brain"></i></div>
+              <h4><a href="" class="stretched-link">Neurology Department</a></h4>
+              <p><strong>Overview:</strong> Neurology involves diagnosing and treating diseases of the brain, spinal cord, and nerves.</br>
+                <strong>Services:</strong>EEG (electroencephalogram), MRI/CT scans for the brain, stroke treatment, epilepsy management, and neurorehabilitation.</br>
+<strong>Specialties:</strong> Stroke care, epilepsy, sleep disorders, movement disorders, and neurodegenerative diseases like Alzheimer's.</p>
+            </div>
+          </div><!-- End Service Item -->
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="fas fa-baby"></i></div>
+              <h4><a href="" class="stretched-link">Pediatrics Department</a></h4>
+              <p><strong>Overview:</strong> The pediatrics department focuses on the medical care of infants, children, and adolescents.</br>
+                <strong>Services:</strong> Well-child visits, vaccinations, pediatric surgeries, treatment of common illnesses, growth and development monitoring.</br>
+<strong>Specialties:</strong> Neonatology, pediatric surgery, pediatric cardiology, and pediatric endocrinology..</p>
+            </div>
+          </div><!-- End Service Item -->
+  <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="fas fa-female"></i></div>
+              <h4><a href="" class="stretched-link">Obstetrics and Gynecology Department</a></h4>
+              <p><strong>Overview:</strong> The Obstetrics and Gynecology department provides comprehensive care for women’s health at every stage of life, with a focus on personalized and compassionate care.</br>
+                <strong>Services:</strong> Prenatal and postnatal care
+                ,Labor and delivery, including high-risk pregnancy management
+                Family planning and contraceptive counseling,
+                Treatment of menstrual disorders and hormonal imbalances,
+                Gynecological surgeries and cancer screenings</br>
+                <strong>Specialties:</strong> Maternity care,
+                Reproductive health,
+                Minimally invasive gynecological surgeries,
+                High-risk pregnancy management,
+                Gynecological oncology</p>
+            </div>
+          </div><!-- End Service Item -->
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="fas fa-ribbon"></i></div>
+              <h4><a href="" class="stretched-link">Oncology Department</a></h4>
+              <p><strong>Overview:</strong> he Oncology department is dedicated to the prevention, diagnosis, and treatment of cancer, providing advanced medical care with a patient-centered approach</br>
+                <strong>Services:</strong> Cancer screening and early detection,
+Chemotherapy and radiation therapy,
+Tumor removal surgeries,
+Symptom management and palliative care,
+Comprehensive support for patients and families</br>
+<strong>Specialties:</strong> Surgical oncology
+Radiation oncology,
+Chemotherapy and targeted therapies,
+Palliative care and pain management,
+Cancer prevention and awareness programs</p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="fas fa-x-ray"></i></div>
+              <h4><a href="" class="stretched-link">Radiology and Imaging Department</a></h4>
+              <p><strong>Overview:</strong> The Radiology and Imaging department provides advanced diagnostic imaging services to support accurate medical diagnoses and treatment planning.</br>
+                <strong>Services:</strong> X-rays and ultrasounds
+CT scans, MRIs, and PET scans
+Image-guided procedures (e.g., biopsies, catheter placements)
+Breast imaging and mammography
+Emergency imaging for trauma cases</br>
+<strong>Specialties:</strong> Diagnostic radiology
+Interventional radiology
+Advanced imaging techniques
+Emergency imaging services
+Cancer imaging and detection</p>
+            </div>
+          </div><!-- End Service Item -->
+
+
+
+        </div>
+
+      </div>
+
+    </section><!-- /Featured Services Section -->
+
+
+
+    <!-- About Section -->
+    <section id="about" class="about section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>About Us<br></h2>
+        <p>Care First Multi-Speciality Hospital</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row gy-4">
+          <div class="col-lg-6 position-relative align-self-start" data-aos="fade-up" data-aos-delay="100">
+            <img src="assets/img/about.jpg" class="img-fluid" alt="">
+            <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox pulsating-play-btn"></a>
+          </div>
+          <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="200">
+
+            <p class="fst-italic">
+              At Care First, we are committed to providing exceptional healthcare services with compassion, excellence,
+              and dedication. Established with the mission to offer quality medical care, our multi-specialty hospital brings
+              together a team of highly skilled professionals in various fields of medicine.
+              We aim to provide comprehensive care to patients, ensuring that their health needs are met with the
+              utmost attention and care. Our team of doctors,
+              nurses, and medical staff is here to make your healthcare experience seamless and comfortable.
+            </p>
+            <ul>
+              <li><i class="bi bi-check2-all"></i> <span>Comprehensive Medical Care Across Multiple Specialties
+At Care First Multi-Speciality Hospital, we offer a wide range of specialized medical services to cater to all your healthcare needs. From emergency care to advanced treatments in cardiology, neurology, orthopedics, and pediatrics, our team of expert doctors ensures high-quality care for every patient.</span></li>
+              <li><i class="bi bi-check2-all"></i> <span>State-of-the-Art Facilities and Technology
+Equipped with the latest medical technologies and advanced diagnostic tools, Care First provides cutting-edge treatments and ensures accurate diagnoses. Our modern hospital infrastructure guarantees the best outcomes for patients through innovation and precision in medical care.</span></li>
+              <li><i class="bi bi-check2-all"></i> <span>Patient-Centered Care with Compassionate Support
+We prioritize your health and well-being at Care First. Our dedicated team focuses not only on providing medical expertise but also on offering compassionate care and emotional support, ensuring that every patient feels comfortable, respected, and cared for throughout their journey with us.</span></li>
+            </ul>
+            <p>
+              Care First stands as a beacon of healthcare excellence, bringing together the best doctors, medical technologies, and a patient-centered approach to provide the highest standard of care. Our vision is to create a healthy community, where every individual receives the care they deserve.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /About Section -->
+
+    <!-- Stats Section -->
+    <section id="stats" class="stats section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item d-flex align-items-center w-100 h-100">
+              <i class="fas fa-user-md flex-shrink-0"></i>
+              <div>
+                <span data-purecounter-start="0" data-purecounter-end="25" data-purecounter-duration="1" class="purecounter"></span>
+                <p>Doctors</p>
+              </div>
+            </div>
+          </div><!-- End Stats Item -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item d-flex align-items-center w-100 h-100">
+              <i class="far fa-hospital flex-shrink-0"></i>
+              <div>
+                <span data-purecounter-start="0" data-purecounter-end="8" data-purecounter-duration="1" class="purecounter"></span>
+                <p>Departments</p>
+              </div>
+            </div>
+          </div><!-- End Stats Item -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item d-flex align-items-center w-100 h-100">
+              <i class="fas fa-flask flex-shrink-0"></i>
+              <div>
+                <span data-purecounter-start="0" data-purecounter-end="8" data-purecounter-duration="1" class="purecounter"></span>
+                <p>Research Labs</p>
+              </div>
+            </div>
+          </div><!-- End Stats Item -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item d-flex align-items-center w-100 h-100">
+              <i class="fas fa-award flex-shrink-0"></i>
+              <div>
+                <span data-purecounter-start="0" data-purecounter-end="50" data-purecounter-duration="1" class="purecounter"></span>
+                <p>Awards</p>
+              </div>
+            </div>
+          </div><!-- End Stats Item -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Stats Section -->
+
+
+    <!-- Services Section -->
+    <section id="services" class="services section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Services</h2>
+        <p>Services provided by the hospital.</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-item  position-relative">
+              <div class="icon">
+                <i class="fas fa-ambulance"></i>
+              </div>
+              <a href="#" class="stretched-link">
+                <h3>24/7 Emergency Care</h3>
+              </a>
+              <p>Immediate medical attention for critical and life-threatening conditions, ensuring prompt care at any time.
+
+</p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-item position-relative">
+              <div class="icon">
+                <i class="fas fa-stethoscope"></i>
+              </div>
+              <a href="#" class="stretched-link">
+                <h3>Outpatient Services</h3>
+              </a>
+              <p>Expert consultations, diagnostics, and follow-up care for a variety of health concerns.</p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-item position-relative">
+              <div class="icon">
+                <i class="fas fa-procedures"></i>
+              </div>
+              <a href="#" class="stretched-link">
+                <h3>Inpatient Care</h3>
+              </a>
+              <p>Comprehensive medical and surgical care with state-of-the-art facilities and patient-centric comfort.
+
+</p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="service-item position-relative">
+              <div class="icon">
+                <i class="fas fa-x-ray"></i>
+              </div>
+              <a href="#" class="stretched-link">
+                <h3>Diagnostic Imaging</h3>
+              </a>
+              <p>Advanced diagnostic tools, including MRI, CT scans, and ultrasound, for accurate health evaluations.</p>
+              <a href="#" class="stretched-link"></a>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+            <div class="service-item position-relative">
+              <div class="icon">
+                <i class="fas fa-pills"></i>
+              </div>
+              <a href="#" class="stretched-link">
+                <h3> Pharmacy Services</h3>
+              </a>
+              <p>Onsite pharmacy offering a wide range of medications and prescription fulfillment services.</p>
+              <a href="#" class="stretched-link"></a>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+            <div class="service-item position-relative">
+              <div class="icon">
+                <i class="fas fa-heartbeat"></i>
+              </div>
+              <a href="#" class="stretched-link">
+                <h3>Health Checkups</h3>
+              </a>
+              <p>Preventive health packages designed to monitor and maintain optimal health for all age groups.</p>
+              <a href="#" class="stretched-link"></a>
+            </div>
+          </div><!-- End Service Item -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Services Section -->
+
+    <!-- Tabs Section -->
+    <section id="tabs" class="tabs section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Departments</h2>
+        <p>Details about the various departments that exist in Care First Mult-speciality Hospital</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row">
+          <div class="col-lg-3">
+            <ul class="nav nav-tabs flex-column">
+              <li class="nav-item">
+                <a class="nav-link active show" data-bs-toggle="tab" href="#tabs-tab-1">Emergency Department</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#tabs-tab-2">Cardiology Department</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#tabs-tab-3">Orthopedics Department</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#tabs-tab-4">Neurology Department</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#tabs-tab-5">Pediatrics Department</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#tabs-tab-6"> Obstetrics and Gynecology Department (OB-GYN)</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#tabs-tab-7">Oncology Department</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#tabs-tab-8">Radiology and Imaging Department</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-9 mt-4 mt-lg-0">
+            <div class="tab-content">
+              <div class="tab-pane active show" id="tabs-tab-1">
+                <div class="row">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    <h3>Emergency</h3>
+                    <p class="fst-italic">Handles acute and life-threatening medical conditions, providing immediate care for patients with urgent health issues.</p>
+                    <p>Services include trauma care, critical care, and resuscitation.</p>
+                  </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+                    <img src="static/assets/img/departments-1.jpg" alt="" class="img-fluid">
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane" id="tabs-tab-2">
+                <div class="row">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    <h3>Cardiology</h3>
+                    <p class="fst-italic">Focuses on the diagnosis and treatment of heart and cardiovascular diseases.</p>
+                    <p>Services include heart disease management, echocardiography, stress testing, and surgeries like angioplasty.</p>
+                  </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+                    <img src="static/assets/img/departments-2.jpg" alt="" class="img-fluid">
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane" id="tabs-tab-3">
+                <div class="row">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    <h3>Orthopedics</h3>
+                    <p class="fst-italic">Specializes in the treatment of musculoskeletal disorders, including bones, joints, and muscles.</p>
+                    <p>Services include fracture care, joint replacement surgeries, spine care, and physical therapy.</p>
+                  </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+                    <img src="static/assets/img/departments-3.jpg" alt="" class="img-fluid">
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane" id="tabs-tab-4">
+                <div class="row">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    <h3>Neurology</h3>
+                    <p class="fst-italic">Deals with disorders related to the brain, spinal cord, and nervous system.</p>
+                    <p>Services include stroke management, epilepsy care, neurorehabilitation, and treatment for neurological disorders.</p>
+                  </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+                    <img src="static/assets/img/departments-4.jpg" alt="" class="img-fluid">
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane" id="tabs-tab-5">
+                <div class="row">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    <h3>Pediatrics </h3>
+                    <p class="fst-italic">Provides medical care for infants, children, and adolescents.</p>
+                    <p>Services include vaccinations, pediatric surgeries, growth monitoring, and treatment of childhood illnesses.</p>
+                  </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+                    <img src="static/assets/img/departments-5.jpg" alt="" class="img-fluid">
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane" id="tabs-tab-6">
+                <div class="row">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    <h3>Obstetrics and Gynecology</h3>
+                    <p class="fst-italic">Focuses on women's health, pregnancy care, childbirth, and reproductive health.</p>
+                    <p>Services include prenatal care, labor and delivery, gynecological surgeries, and family planning.</p>
+                  </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+                    <img src="static/assets/img/departments-4.jpg" alt="" class="img-fluid">
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane" id="tabs-tab-7">
+                <div class="row">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    <h3>Oncology </h3>
+                    <p class="fst-italic">Specializes in the diagnosis, treatment, and management of cancer.</p>
+                    <p>Services include chemotherapy, radiation therapy, surgical oncology, and palliative care.</p>
+                  </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+                    <img src="static/assets/img/departments-4.jpg" alt="" class="img-fluid">
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane" id="tabs-tab-8">
+                <div class="row">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    <h3> Radiology and Imaging</h3>
+                    <p class="fst-italic">Provides diagnostic imaging services to assist in diagnosing various conditions.</p>
+                    <p>Services include X-rays, CT scans, MRIs, ultrasounds, and other imaging techniques for accurate diagnosis.</p>
+                  </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+                    <img src="static/assets/img/departments-4.jpg" alt="" class="img-fluid">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /Tabs Section -->
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Testimonials</h2>
+<!--        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>-->
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="swiper init-swiper" data-speed="600" data-delay="5000" data-breakpoints="{ &quot;320&quot;: { &quot;slidesPerView&quot;: 1, &quot;spaceBetween&quot;: 40 }, &quot;1200&quot;: { &quot;slidesPerView&quot;: 3, &quot;spaceBetween&quot;: 40 } }">
+          <script type="application/json" class="swiper-config">
+            {
+              "loop": true,
+              "speed": 600,
+              "autoplay": {
+                "delay": 5000
+              },
+              "slidesPerView": "auto",
+              "pagination": {
+                "el": ".swiper-pagination",
+                "type": "bullets",
+                "clickable": true
+              },
+              "breakpoints": {
+                "320": {
+                  "slidesPerView": 1,
+                  "spaceBetween": 40
+                },
+                "1200": {
+                  "slidesPerView": 3,
+                  "spaceBetween": 20
+                }
+              }
+            }
+          </script>
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+              <div class="testimonial-item" "="">
+            <p>
+              <i class=" bi bi-quote quote-icon-left"></i>
+                <span>"The services at Care First were exceptional! The staff was professional, caring, and efficient. Booking appointments and accessing my medical records online has never been easier!"</span>
+                <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+<!--                <img src="static/assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">-->
+                <h3>John M</h3>
+                <h4>Patient</h4>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>"I was impressed by how organized everything was. From the moment I stepped into the hospital, everything was seamless. The online payment feature saved so much time!"</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+<!--                <img src="static/assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">-->
+                <h3>Sophia L</h3>
+                <h4>patient</h4>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>"Care First is truly a one-stop solution for all healthcare needs. The ease of consulting with specialists and receiving lab results on the portal is amazing!"</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+<!--                <img src="static/assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">-->
+                <h3>Rajesh K</h3>
+                <h4>patient</h4>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>"As a doctor, I find the system extremely user-friendly. It has streamlined our operations, from scheduling appointments to accessing patient history with just a few clicks!"</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+<!--                <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">-->
+                <h3>Dr. Priya Nair </h3>
+                <h4>Pediatrician</h4>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>"The Care First system has made my practice much more efficient. Managing patient records and treatment plans has become effortless and organized."</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+<!--                <img src="static/assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">-->
+                <h3>Dr. Anil Kuma</h3>
+                <h4>Cardiologist</h4>
+              </div>
+            </div><!-- End testimonial item -->
+
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+
+    </section><!-- /Testimonials Section -->
+
+    <!-- Doctors Section -->
+<!--    <section id="doctors" class="doctors section light-background">-->
+
+<!--      &lt;!&ndash; Section Title &ndash;&gt;-->
+<!--      <div class="container section-title" data-aos="fade-up">-->
+<!--        <h2>Doctors</h2>-->
+<!--&lt;!&ndash;        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>&ndash;&gt;-->
+<!--      </div>&lt;!&ndash; End Section Title &ndash;&gt;-->
+
+<!--      <div class="container">-->
+
+<!--        <div class="row gy-4">-->
+
+<!--          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">-->
+<!--            <div class="team-member">-->
+<!--              <div class="member-img">-->
+<!--                <img src="static/assets/img/doctors/doctors-1.jpg" class="img-fluid" alt="">-->
+
+<!--              </div>-->
+<!--              <div class="member-info">-->
+<!--                <h4>Nirmala Prasad</h4>-->
+<!--                <span>Pediatrition</span>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>&lt;!&ndash; End Team Member &ndash;&gt;-->
+
+<!--          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">-->
+<!--            <div class="team-member">-->
+<!--              <div class="member-img">-->
+<!--                <img src="static/assets/img/doctors/doctors-2.jpg" class="img-fluid" alt="">-->
+
+<!--              </div>-->
+<!--              <div class="member-info">-->
+<!--                <h4>Muhammed Zayan</h4>-->
+<!--                <span>Gynecology</span>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>&lt;!&ndash; End Team Member &ndash;&gt;-->
+
+<!--          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">-->
+<!--            <div class="team-member">-->
+<!--              <div class="member-img">-->
+<!--                <img src="static/assets/img/doctors/doctors-3.jpg" class="img-fluid" alt="">-->
+
+<!--              </div>-->
+<!--              <div class="member-info">-->
+<!--                <h4>Dil Basweera K K</h4>-->
+<!--                <span>Neurologist</span>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>&lt;!&ndash; End Team Member &ndash;&gt;-->
+
+<!--          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">-->
+<!--            <div class="team-member">-->
+<!--              <div class="member-img">-->
+<!--                <img src="static/assets/img/doctors/doctors-4.jpg" class="img-fluid" alt="">-->
+
+<!--              </div>-->
+<!--              <div class="member-info">-->
+<!--                <h4>Renjini Thomas</h4>-->
+<!--                <span>Radiologist</span>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>&lt;!&ndash; End Team Member &ndash;&gt;-->
+
+<!--        </div>-->
+
+<!--      </div>-->
+
+<!--    </section>&lt;!&ndash; /Doctors Section &ndash;&gt;-->
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Gallery</h2>
+<!--        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>-->
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="swiper init-swiper">
+          <script type="application/json" class="swiper-config">
+            {
+              "loop": true,
+              "speed": 600,
+              "autoplay": {
+                "delay": 5000
+              },
+              "slidesPerView": "auto",
+              "centeredSlides": true,
+              "pagination": {
+                "el": ".swiper-pagination",
+                "type": "bullets",
+                "clickable": true
+              },
+              "breakpoints": {
+                "320": {
+                  "slidesPerView": 1,
+                  "spaceBetween": 0
+                },
+                "768": {
+                  "slidesPerView": 3,
+                  "spaceBetween": 20
+                },
+                "1200": {
+                  "slidesPerView": 5,
+                  "spaceBetween": 20
+                }
+              }
+            }
+          </script>
+          <div class="swiper-wrapper align-items-center">
+            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="static/assets/img/gallery/hospital1.jpg"><img src="static/assets/img/gallery/hospital1.jpg" class="img-fluid" alt=""></a></div>
+            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="static/assets/img/gallery/hospital2.jpg"><img src="static/assets/img/gallery/hospital2.jpg" class="img-fluid" alt=""></a></div>
+            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="static/assets/img/gallery/hospital3.jpg"><img src="static/assets/img/gallery/hospital3.jpg" class="img-fluid" alt=""></a></div>
+            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="static/assets/img/gallery/hospital4.jpg"><img src="static/assets/img/gallery/hospital4.jpg" class="img-fluid" alt=""></a></div>
+            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="static/assets/img/gallery/hospital5.jpg"><img src="static/assets/img/gallery/hospital5.jpg" class="img-fluid" alt=""></a></div>
+            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="static/assets/img/gallery/hospital6.jpg"><img src="static/assets/img/gallery/hospital6.jpg" class="img-fluid" alt=""></a></div>
+
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+
+    </section><!-- /Gallery Section -->
+
+
+    <!-- Faq Section -->
+    <section id="faq" class="faq section light-background">
+
+
+    </section><!-- /Faq Section -->
+
+    <!-- Contact Section -->
+<!--    <section id="contact" class="contact section">-->
+
+<!--      &lt;!&ndash; Section Title &ndash;&gt;-->
+<!--      <div class="container section-title" data-aos="fade-up">-->
+<!--        <h2>Contact</h2>-->
+<!--        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>-->
+<!--      </div>&lt;!&ndash; End Section Title &ndash;&gt;-->
+
+<!--      <div class="mb-5" data-aos="fade-up" data-aos-delay="200">-->
+<!--        <iframe style="border:0; width: 100%; height: 370px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d48389.78314118045!2d-74.006138!3d40.710059!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a22a3bda30d%3A0xb89d1fe6bc499443!2sDowntown%20Conference%20Center!5e0!3m2!1sen!2sus!4v1676961268712!5m2!1sen!2sus" frameborder="0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>-->
+<!--      </div>&lt;!&ndash; End Google Maps &ndash;&gt;-->
+
+<!--      <div class="container" data-aos="fade-up" data-aos-delay="100">-->
+
+<!--        <div class="row gy-4">-->
+<!--          <div class="col-lg-6 ">-->
+<!--            <div class="row gy-4">-->
+
+<!--              <div class="col-lg-12">-->
+<!--                <div class="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="200">-->
+<!--                  <i class="bi bi-geo-alt"></i>-->
+<!--                  <h3>Address</h3>-->
+<!--                  <p>A108 Adam Street, New York, NY 535022</p>-->
+<!--                </div>-->
+<!--              </div>&lt;!&ndash; End Info Item &ndash;&gt;-->
+
+<!--              <div class="col-md-6">-->
+<!--                <div class="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="300">-->
+<!--                  <i class="bi bi-telephone"></i>-->
+<!--                  <h3>Call Us</h3>-->
+<!--                  <p>+1 5589 55488 55</p>-->
+<!--                </div>-->
+<!--              </div>&lt;!&ndash; End Info Item &ndash;&gt;-->
+
+<!--              <div class="col-md-6">-->
+<!--                <div class="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="400">-->
+<!--                  <i class="bi bi-envelope"></i>-->
+<!--                  <h3>Email Us</h3>-->
+<!--                  <p>info@example.com</p>-->
+<!--                </div>-->
+<!--              </div>&lt;!&ndash; End Info Item &ndash;&gt;-->
+
+<!--            </div>-->
+<!--          </div>-->
+
+<!--          <div class="col-lg-6">-->
+<!--            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="500">-->
+<!--              <div class="row gy-4">-->
+
+<!--                <div class="col-md-6">-->
+<!--                  <input type="text" name="name" class="form-control" placeholder="Your Name" required="">-->
+<!--                </div>-->
+
+<!--                <div class="col-md-6 ">-->
+<!--                  <input type="email" class="form-control" name="email" placeholder="Your Email" required="">-->
+<!--                </div>-->
+
+<!--                <div class="col-md-12">-->
+<!--                  <input type="text" class="form-control" name="subject" placeholder="Subject" required="">-->
+<!--                </div>-->
+
+<!--                <div class="col-md-12">-->
+<!--                  <textarea class="form-control" name="message" rows="4" placeholder="Message" required=""></textarea>-->
+<!--                </div>-->
+
+<!--                <div class="col-md-12 text-center">-->
+<!--                  <div class="loading">Loading</div>-->
+<!--                  <div class="error-message"></div>-->
+<!--                  <div class="sent-message">Your message has been sent. Thank you!</div>-->
+
+<!--                  <button type="submit">Send Message</button>-->
+<!--                </div>-->
+
+<!--              </div>-->
+<!--            </form>-->
+<!--          </div>&lt;!&ndash; End Contact Form &ndash;&gt;-->
+
+<!--        </div>-->
+
+<!--      </div>-->
+
+<!--    </section>&lt;!&ndash; /Contact Section &ndash;&gt;-->
+
+  </main>
+
+<!--  <footer id="footer" class="footer light-background">-->
+
+<!--    <div class="container footer-top">-->
+<!--      <div class="row gy-4">-->
+<!--        <div class="col-lg-4 col-md-6 footer-about">-->
+<!--          <a href="index.html" class="logo d-flex align-items-center">-->
+<!--            <span class="sitename">Medicio</span>-->
+<!--          </a>-->
+<!--          <div class="footer-contact pt-3">-->
+<!--            <p>A108 Adam Street</p>-->
+<!--            <p>New York, NY 535022</p>-->
+<!--            <p class="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>-->
+<!--            <p><strong>Email:</strong> <span>info@example.com</span></p>-->
+<!--          </div>-->
+<!--          <div class="social-links d-flex mt-4">-->
+<!--            <a href=""><i class="bi bi-twitter-x"></i></a>-->
+<!--            <a href=""><i class="bi bi-facebook"></i></a>-->
+<!--            <a href=""><i class="bi bi-instagram"></i></a>-->
+<!--            <a href=""><i class="bi bi-linkedin"></i></a>-->
+<!--          </div>-->
+<!--        </div>-->
+
+<!--        <div class="col-lg-2 col-md-3 footer-links">-->
+<!--          <h4>Useful Links</h4>-->
+<!--          <ul>-->
+<!--            <li><a href="#">Home</a></li>-->
+<!--            <li><a href="#">About us</a></li>-->
+<!--            <li><a href="#">Services</a></li>-->
+<!--            <li><a href="#">Terms of service</a></li>-->
+<!--            <li><a href="#">Privacy policy</a></li>-->
+<!--          </ul>-->
+<!--        </div>-->
+
+
+
+    <div class="container copyright text-center mt-4">
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">CARE FREE</strong> <span>All Rights Reserved</span></p>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you've purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+        Designed by Renjini Thomas
+      </div>
+    </div>
+
+<!--  </footer>-->
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="static/assets/vendor/php-email-form/validate.js"></script>
+  <script src="static/assets/vendor/aos/aos.js"></script>
+  <script src="static/assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="static/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="static/assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="static/assets/js/main.js"></script>
+
+
+</body>
+
+</html>

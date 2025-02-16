@@ -1,0 +1,19 @@
+{% extends 'main.html' %}
+
+{% block title %}Medical Record Details{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Medical Record for {{ record.patient.first_name }} {{ record.patient.last_name }}</h2>
+
+    <p><strong>Appointment Date:</strong> {{ appointment.appointment_date }}</p>
+    <p><strong>Appointment Time:</strong> {{ appointment.appointment_time }}</p>
+    <p><strong>Diagnosis:</strong> {{ record.diagnosis }}</p>
+    <p><strong>Treatment Plan:</strong> {{ record.treatment_plan }}</p>
+    <p><strong>Medications:</strong> {{ record.medications }}</p>
+    <p><strong>Prescription:</strong> {{ record.prescription }}</p>
+    <p><strong>Visit Date:</strong> {{ record.visit_date }}</p>
+
+    <a href="{% url 'doctors_dash' %}" class="btn btn-secondary mt-4">Back to Dashboard</a>
+</div>
+{% endblock %}

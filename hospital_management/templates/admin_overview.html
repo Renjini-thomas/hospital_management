@@ -1,0 +1,66 @@
+{% extends 'main.html '%}
+{% block title %}Overview{% endblock %}
+{% block content %}
+{% load static %}
+<div class="container mt-5">
+
+    <h2 class="text-center mb-4">🏥 Hospital Overview</h2>
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <div class="card text-white bg-info">
+                <div class="card-body">
+                    <h5 class="card-title">Total Patients:</h5>
+                    <p class="card-text"> {{ t_patients }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card text-white bg-success">
+                <div class="card-body">
+                    <h5 class="card-title">Total Doctors:</h5>
+                    <p class="card-text"> {{ t_doctors }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card text-white bg-warning">
+                <div class="card-body">
+                    <h5 class="card-title">Today's Appoinments:</h5>
+                    <p class="card-text"> {{ today_appoinments }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <!-- Available Rooms -->
+        <div class="col-md-4 mb-3">
+            <div class="card text-white bg-primary">
+                <div class="card-body">
+                    <h5 class="card-title">Available Rooms</h5>
+                    <p class="card-text">{{ available_rooms }}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pending Bills -->
+        <div class="col-md-4 mb-3">
+            <div class="card text-white bg-danger">
+                <div class="card-body">
+                    <h5 class="card-title">Pending Bills</h5>
+                    <p class="card-text">{{ pending_bills }}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Total Revenue -->
+        <div class="col-md-4 mb-3">
+            <div class="card text-white bg-dark">
+                <div class="card-body">
+                    <h5 class="card-title">Total Revenue</h5>
+                    <p class="card-text">₹{{ total_revenue }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}

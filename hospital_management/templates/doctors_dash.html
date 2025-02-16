@@ -1,0 +1,105 @@
+{% extends 'main.html '%}
+{% block title %}Doctors Dashboard{% endblock %}
+{% block content %}
+{% load static %}
+<style>
+    h2 {
+        font-size: 32px;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #ffffff;
+        text-align: center;
+        padding: 15px;
+        background: linear-gradient(to right, #008080, #20c997); /* Teal Gradient */
+        border-radius: 8px;
+        box-shadow: 0px 4px 15px rgba(0, 255, 255, 0.5); /* Glowing Effect */
+        text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
+    }
+    .custom-teal-btn {
+        background: linear-gradient(135deg, #008080, #20c997); /* Teal Gradient */
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+
+    .custom-teal-btn:hover {
+        background: linear-gradient(135deg, #20c997, #008080); /* Inverted Teal */
+        transform: scale(1.05);
+        box-shadow: 0px 4px 10px rgba(0, 255, 255, 0.3);
+    }
+    body {
+    background-color: #f8f9fa;
+    background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
+    font-family: 'Arial', sans-serif;
+}
+    .card {
+        background: linear-gradient(135deg, #008080, #20c997); /* Teal Gradient */
+        color: white;
+        border-radius: 12px;
+        box-shadow: 0px 4px 15px rgba(0, 128, 128, 0.3);
+        padding: 20px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+        transform: scale(1.03);
+        box-shadow: 0px 6px 20px rgba(0, 255, 255, 0.4);
+    }
+
+    .card-header {
+        text-align: center;
+        font-size: 22px;
+        font-weight: bold;
+        text-transform: uppercase;
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        box-shadow: 0px 2px 8px rgba(255, 255, 255, 0.2);
+    }
+
+    .card-body {
+        font-size: 18px;
+        padding: 15px;
+    }
+
+    .card-body p {
+        margin: 8px 0;
+        font-weight: 500;
+    }
+
+    .card-body strong {
+        color: #ffeb3b; /* Yellow for highlighting */
+    }
+    </style>
+<div class="container mt-4">
+    <h2>Welcome Dr.{{ doct.first_name }} {{ doct.last_name }} to your Dashboard</h2>
+    <div class="card mb-4">
+        <div class="card-header">
+            <h2>PROFILE</h2>
+        </div>
+        <div class="card-body">
+            <p><strong>Name:</strong> Dr. {{ doct.first_name }} {{ doct.last_name }}</p>
+            <p><strong>Specialty:</strong> {{ doct.specialty }}</p>
+            <p><strong>Contact Number:</strong> {{ doct.contact_number }}</p>
+            <p><strong>Email:</strong> {{ doct.email }}</p>
+            <p><strong>Years of Experience:</strong> {{ doct.years_of_experience }}</p>
+        </div>
+    </div>
+
+    <!-- Overview Button -->
+    <a href="{% url 'doctor_appointment_dashboard' %}" class="btn custom-teal-btn mb-3">Appoinments</a>
+    <a href="{% url 'doctor_medical_records' %}" class="btn custom-teal-btn mb-3">Medical Records</a>
+
+
+
+    <!-- Doctor Management Button -->
+
+
+
+    <!-- Add more dashboard content here -->
+</div>
+{% endblock %}

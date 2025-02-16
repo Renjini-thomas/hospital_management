@@ -1,0 +1,117 @@
+{% extends 'main.html' %}
+
+{% block title %}Doctor Dashboard{% endblock %}
+
+{% block content %}
+<style>
+    h2 {
+        font-size: 32px;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #ffffff;
+        text-align: center;
+        padding: 15px;
+        background: linear-gradient(to right, #008080, #20c997); /* Teal Gradient */
+        border-radius: 8px;
+        box-shadow: 0px 4px 15px rgba(0, 255, 255, 0.5); /* Glowing Effect */
+        text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
+    }
+    .custom-teal-btn {
+        background: linear-gradient(135deg, #008080, #20c997); /* Teal Gradient */
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+
+    .custom-teal-btn:hover {
+        background: linear-gradient(135deg, #20c997, #008080); /* Inverted Teal */
+        transform: scale(1.05);
+        box-shadow: 0px 4px 10px rgba(0, 255, 255, 0.3);
+    }
+    </style>
+<div class="container mt-4">
+    <h2 class="text-center">Appointments</h2>
+
+    {% if appointments %}
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Patient</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                    <th>Medical Records</th>
+                    <th>BILL</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for appointment in appointments %}
+                <tr>
+                    <td>{{ appointment.patient.first_name }} {{ appointment.patient.last_name }}</td>
+                    <td>{{ appointment.appointment_date }}</td>
+                    <td>{{ appointment.appointment_time }}</td>
+                    <td>
+                        {% if appointment.status == 'Scheduled' %}
+                        <span class="badge bg-warning text-dark">{{ appointment.status }}</span>
+                        {% elif appointment.status == 'Completed' %}
+                        <span class="badge bg-success">{{ appointment.status }}</span>
+                        {% else %}
+                        <span class="badge bg-secondary">N/A</span>
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if appointment.status == 'Scheduled' %}
+                        <a href="{% url 'complete_appointment' appointment.appointment_id %}" class="btn custom-teal-btn mb-3">
+                            Mark as Completed
+                        </a>
+                        {% else %}
+                        N/A
+                        {% endif %}
+                    </td>
+                        <td>
+                        {% if appointment.status == 'Completed' %}
+                            {% with medical_records|dictsort:"appointment_id"|first as record %}
+                                {% if record and record.appointment_id == appointment.appointment_id %}
+                                    <!-- If record exists, show the view button -->
+                                    <a href="{% url 'view_medical_record' appointment.appointment_id %}" class="btn custom-teal-btn mb-3">
+                                        View Medical Record
+                                    </a>
+                                {% else %}
+                                    <!-- If no record exists, show the add button -->
+                                    <a href="{% url 'add_medical_record' appointment.appointment_id %}" class="btn custom-teal-btn mb-3">
+                                        Add Medical Record
+                                    </a>
+                                {% endif %}
+                            {% endwith %}
+                        {% else %}
+                            <span>N/A</span>
+                        {% endif %}
+                    </td>
+                    <td>
+    {% if appointment.status == 'Completed' %}
+        {% if appointment.billing %}
+            <a href="{% url 'view_bill' appointment.billing.billing_id %}" class="btn custom-teal-btn mb-3">View Bill</a>
+        {% else %}
+            <a href="{% url 'complete_appointment' appointment.appointment_id %}" class="btn custom-teal-btn mb-3">Enter Bill</a>
+        {% endif %}
+    {% else %}
+        <span>N/A</span>
+    {% endif %}
+</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="{% url 'doctors_dash' %}" class="btn custom-teal-btn mb-3">BACK</a>
+    </div>
+    {% else %}
+    <p class="text-center">No appointments available.</p>
+    {% endif %}
+</div>
+{% endblock %}

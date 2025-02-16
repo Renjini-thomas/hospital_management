@@ -1,0 +1,134 @@
+{% extends "main.html" %}
+
+{% block title %}DOCTORS AND DEPARTMENTS{% endblock %}
+
+{% block content %}
+    <style>
+        /* General Styles */
+        body {
+            background: #f4f9f9;
+            font-family: 'Arial', sans-serif;
+        }
+
+        h3 {
+            font-size: 28px;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 15px;
+            background: linear-gradient(to right, #008080, #20c997);
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 255, 255, 0.4);
+            text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.8);
+        }
+        .custom-teal-btn {
+            display: inline-block;
+            padding: 10px 15px;
+            background: linear-gradient(135deg, #008080, #20c997);
+            color: white;
+            border: none;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .custom-teal-btn:hover {
+            background: linear-gradient(135deg, #20c997, #008080);
+            transform: scale(1.05);
+            box-shadow: 0px 4px 10px rgba(0, 255, 255, 0.3);
+        }
+        /* Doctor & Department Cards */
+        .card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 128, 128, 0.2);
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 6px 15px rgba(0, 128, 128, 0.3);
+        }
+
+        .card-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #008080;
+        }
+
+        .card-text {
+            font-size: 14px;
+            color: #555;
+        }
+
+        /* Responsive Layout */
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .col-md-4 {
+            flex: 1 0 30%;
+            max-width: 300px;
+            padding: 10px;
+        }
+
+        /* Empty State */
+        .empty-message {
+            text-align: center;
+            font-size: 16px;
+            color: #777;
+            margin-top: 20px;
+        }
+    </style>
+    <center><a href="{% url 'patient_dash' %}" class="btn custom-teal-btn mb-3">BACK</a></center>
+    <!-- Doctors Section -->
+    <h3 class="mt-5">Our Doctors</h3>
+
+    <div class="row">
+        {% for doctor in doctors %}
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Dr. {{ doctor.first_name }} {{ doctor.last_name }}</h5>
+                    <p class="card-text"><strong>Specialization:</strong> {{ doctor.specialty }}</p>
+                    <p class="card-text"><strong>Gender:</strong> {{ doctor.gender }}</p>
+                    <p class="card-text"><strong>Contact:</strong> {{ doctor.contact_number }}</p>
+                    <p class="card-text"><strong>Email:</strong> {{ doctor.email }}</p>
+                    <p class="card-text"><strong>Experience:</strong> {{ doctor.years_of_experience }} years</p>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p class="empty-message">No doctors available at the moment.</p>
+        {% endfor %}
+    </div>
+
+    <!-- Departments Section -->
+    <h3 class="mt-5">Departments</h3>
+    <div class="row">
+        {% for department in deps %}
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ department.name }}</h5>
+                    <p class="card-text">{{ department.description }}</p>
+                    {% if department.head_of_department %}
+                    <p class="card-text"><strong>Head of Department:</strong> {{ department.head_of_department.first_name }} {{ department.head_of_department.last_name }}</p>
+                    {% else %}
+                    <p class="card-text"><strong>Head of Department:</strong> Not assigned</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p class="empty-message">No departments available at the moment.</p>
+        {% endfor %}
+    </div>
+{% endblock %}

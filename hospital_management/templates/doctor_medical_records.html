@@ -1,0 +1,103 @@
+{% extends 'main.html' %}
+{% block title %}Doctor - Medical Records{% endblock %}
+
+{% block content %}
+<style>
+    h2 {
+        font-size: 32px;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #ffffff;
+        text-align: center;
+        padding: 15px;
+        background: linear-gradient(to right, #008080, #20c997); /* Teal Gradient */
+        border-radius: 8px;
+        box-shadow: 0px 4px 15px rgba(0, 255, 255, 0.5); /* Glowing Effect */
+        text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
+    }
+    .custom-teal-btn {
+        background: linear-gradient(135deg, #008080, #20c997); /* Teal Gradient */
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+
+    .custom-teal-btn:hover {
+        background: linear-gradient(135deg, #20c997, #008080); /* Inverted Teal */
+        transform: scale(1.05);
+        box-shadow: 0px 4px 10px rgba(0, 255, 255, 0.3);
+    }
+    body {
+    background-color: #f8f9fa;
+    background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
+    font-family: 'Arial', sans-serif;
+}
+    </style>
+<div class="container mt-5">
+<center><a href="{% url 'doctors_dash' %}" class="btn custom-teal-btn mb-3">BACK</a></center>
+
+    <h2 class="mb-3">Appointments (Completed)</h2>
+    {% if appointments %}
+    <div class="table-responsive mb-4">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Patient</th>
+                    <th>Date</th>
+<!--                    <th>Action</th>-->
+                </tr>
+            </thead>
+            <tbody>
+                {% for appointment in appointments %}
+                <tr>
+                    <td>{{ appointment.patient.first_name }} {{ appointment.patient.last_name }}</td>
+                    <td>{{ appointment.appointment_date }}</td>
+<!--                    <td>-->
+<!--                        <a href="{% url 'add_medical_record' appointment.appointment_id %}" class="btn btn-success btn-sm">Add Medical Record</a>-->
+<!--                    </td>-->
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+    <p>No completed appointments found.</p>
+    {% endif %}
+
+    <h2 class="mb-3">Existing Medical Records</h2>
+    {% if medical_records %}
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Patient</th>
+                    <th>Diagnosis</th>
+                    <th>Treatment Plan</th>
+                    <th>Medications</th>
+                    <th>Prescription</th>
+                    <th>Visit Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for record in medical_records %}
+                <tr>
+                    <td>{{ record.patient.first_name }} {{ record.patient.last_name }}</td>
+                    <td>{{ record.diagnosis }}</td>
+                    <td>{{ record.treatment_plan }}</td>
+                    <td>{{ record.medications }}</td>
+                    <td>{{ record.prescription }}</td>
+                    <td>{{ record.visit_date }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+    <p>No medical records available.</p>
+    {% endif %}
+</div>
+{% endblock %}

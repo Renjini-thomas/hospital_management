@@ -1,0 +1,68 @@
+<!-- admin_dashboard -->
+{% extends 'main.html' %}
+
+{% block content %}
+<style>
+    h2 {
+        font-size: 32px;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #ffffff;
+        text-align: center;
+        padding: 15px;
+        background: linear-gradient(to right, #008080, #20c997); /* Teal Gradient */
+        border-radius: 8px;
+        box-shadow: 0px 4px 15px rgba(0, 255, 255, 0.5); /* Glowing Effect */
+        text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
+    }
+    .custom-teal-btn {
+        background: linear-gradient(135deg, #008080, #20c997); /* Teal Gradient */
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+
+    .custom-teal-btn:hover {
+        background: linear-gradient(135deg, #20c997, #008080); /* Inverted Teal */
+        transform: scale(1.05);
+        box-shadow: 0px 4px 10px rgba(0, 255, 255, 0.3);
+    }
+    </style>
+<div class="container mt-5">
+    <h2>Pending Patient Registrations</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if pending_patients %}
+                {% for patient in pending_patients %}
+        <tr>
+            <td>{{ patient.first_name }}</td>
+            <td>{{ patient.last_name }}</td>
+            <td>{{ patient.email }}</td>
+            <td>
+                <a href="{% url 'approve_patient' patient_id=patient.patient_id %}" class="btn custom-teal-btn mb-3">Approve</a>
+                <a href="{% url 'reject_patient' patient_id=patient.patient_id %}" class="btn custom-teal-btn mb-3">Reject</a>
+            </td>
+        </tr>
+                {% endfor %}
+{% else %}
+    <tr><td colspan="4">No pending patients</td></tr>
+{% endif %}
+
+        </tbody>
+    </table>
+    <a href="{% url 'patient_list' %}" class="btn custom-teal-btn mb-3">BACK</a>
+</div>
+
+{% endblock %}
